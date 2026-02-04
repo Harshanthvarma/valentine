@@ -55,14 +55,18 @@ box-shadow:0 0 20px white;
 }
 
 .heart{
-position:absolute;
+position:fixed;
+top:0;
 animation:float 6s linear infinite;
+pointer-events:none;
 }
 
+
 @keyframes float{
-0%{transform:translateY(100vh)}
-100%{transform:translateY(-10vh)}
+0%{transform:translateY(110vh)}
+100%{transform:translateY(-20vh)}
 }
+
 
 /* HEART EXPLOSION */
 .burst{
@@ -165,4 +169,5 @@ setTimeout(()=>heart.remove(),6000);
 
 </body>
 </html>
+
 
