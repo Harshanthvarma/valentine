@@ -13,7 +13,9 @@ background-size:400% 400%;
 animation:bg 10s ease infinite;
 height:100vh;
 overflow:hidden;
+overflow-x:hidden;
 }
+
 
 
 @keyframes bg{
@@ -57,10 +59,11 @@ border-radius:12px;
 margin-top:15px;
 box-shadow:0 0 20px white;
 }
-
+  
 .heart{
 position:fixed;
 top:0;
+left:0;
 animation:float 6s linear infinite;
 pointer-events:none;
 }
@@ -164,7 +167,7 @@ setInterval(()=>{
 const heart=document.createElement("div");
 heart.className="heart";
 heart.innerHTML="💖";
-heart.style.left=Math.random()*100+"vw";
+heart.style.left=Math.random()*95+"vw";
 heart.style.fontSize=Math.random()*20+10+"px";
 document.body.appendChild(heart);
 setTimeout(()=>heart.remove(),6000);
@@ -173,6 +176,7 @@ setTimeout(()=>heart.remove(),6000);
 
 </body>
 </html>
+
 
 
 
