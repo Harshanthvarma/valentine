@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Lekhana ❤️</title>
+<style>
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+text-align:center;
+color:white;
+background:linear-gradient(-45deg,#ff4e50,#ff758c,#ff7eb3,#ff4e50);
+background-size:400% 400%;
+animation:bg 10s ease infinite;
+overflow:auto;
+min-height:100vh;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+.box{
+background:rgba(0,0,0,0.55);
+padding:25px;
+border-radius:18px;
+width:90%;
+max-width:420px;
+margin:60px auto;
+box-shadow:0 0 25px rgba(255,255,255,0.4);
+}
+
+button{
+padding:10px 18px;
+margin:10px;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{transform:scale(1.1)}
+
+.yes{background:#00c853;color:white}
+.no{background:#d50000;color:white;position:relative}
+.next{background:#ff4081;color:white}
+
+video{
+width:100%;
+border-radius:12px;
+margin-top:15px;
+box-shadow:0 0 20px white;
+}
+
+.heart{
+position:absolute;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh)}
+100%{transform:translateY(-10vh)}
+}
+
+/* HEART EXPLOSION */
+.burst{
+position:fixed;
+font-size:20px;
+animation:explode 1s ease-out forwards;
+pointer-events:none;
+}
+
+@keyframes explode{
+0%{transform:translate(0,0) scale(1);opacity:1}
+100%{transform:translate(var(--x),var(--y)) scale(2);opacity:0}
+}
+</style>
+</head>
+<body>
+
+<div class="box" id="box">
+<h1>Hey Lekhana ❤️</h1>
+<p>I made something special for you…</p>
+<button class="next" onclick="q1()">Enter 💌</button>
+</div>
+
+<script>
+function q1(){
+box.innerHTML=`
+<h2>Do you smile when my name pops up? 😊</h2>
+<button class="next" onclick="q2()">Maybe 😌</button>
+<button class="next" onclick="q2()">Okay yes 🙈</button>`;
+}
+
+function q2(){
+box.innerHTML=`
+<h2>If we were sitting together, close… or very close? 😏</h2>
+<button class="next" onclick="q3()">Close</button>
+<button class="next" onclick="q3()">Very close 🤭</button>`;
+}
+
+function q3(){
+box.innerHTML=`
+<h2>Who likes the other person more? 😜</h2>
+<button class="next" onclick="q4()">You like me more</button>
+<button class="next" onclick="q4()">I like you more ❤️</button>`;
+}
+
+function q4(){
+box.innerHTML=`
+<h2>Okay… now watch this 🎬</h2>
+<video controls>
+<source src="video.mp4" type="video/mp4">
+</video>
+<br>
+<button class="next" onclick="finalQ()">Continue ❤️</button>`;
+}
+
+function finalQ(){
+box.innerHTML=`
+<h2>Lekhana… shall we make this official? 💖</h2>
+<button class="yes" onclick="yes()">YES 😍</button>
+<button class="no" id="noBtn" onmouseover="moveNo()">NO 😅</button>`;
+}
+
+function yes(){
+box.innerHTML="<h1>YAY ❤️ I knew it! Now I owe you a real-life smile date 😌</h1>";
+
+for(let i=0;i<40;i++){
+let heart=document.createElement("div");
+heart.className="burst";
+heart.innerHTML="💖";
+heart.style.left=window.innerWidth/2+"px";
+heart.style.top=window.innerHeight/2+"px";
+
+let x=(Math.random()-0.5)*600+"px";
+let y=(Math.random()-0.5)*600+"px";
+heart.style.setProperty('--x',x);
+heart.style.setProperty('--y',y);
+
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),1000);
+}
+}
+
+function moveNo(){
+var btn=document.getElementById("noBtn");
+btn.style.position="absolute";
+btn.style.left=Math.random()*250+"px";
+btn.style.top=Math.random()*200+"px";
+}
+
+setInterval(()=>{
+const heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="💖";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=Math.random()*20+10+"px";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),6000);
+},300);
+</script>
+
+</body>
+</html>
